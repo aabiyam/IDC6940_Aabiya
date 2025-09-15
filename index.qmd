@@ -1,7 +1,6 @@
 ---
-title: "Writing a great story for data science projects - Fall 2025 "
-subtitle: "This is a Report Template Quarto"
-author: "Student Name (Advisor: Dr. Cohen)"
+title: "Research summaries on XGBoost "
+author: "Aabiya Mansoor(Advisor: Dr. Cohen)"
 date: '`r Sys.Date()`'
 format:
   html:
@@ -18,144 +17,168 @@ editor:
     wrap: 72
 ---
 
-Slides: [slides.html](slides.html){target="_blank"} ( Go to `slides.qmd`
-to edit)
+# Research Summaries on XGBoost
 
-::: callout-important
-**Remember:** Your goal is to make your audience understand and care
-about your findings. By crafting a compelling story, you can effectively
-communicate the value of your data science project.
+Summary 1: XGBoost Model and Its Application to Personal Credit
 
-Carefully read this template since it has instructions and tips to
-writing!
+Problem
 
-Nice report!
-:::
+This research paper addresses the difficulty of personal credit evaluation, which means predicting whether borrowers will repay or default on loans. Logistic regression has long been the standard model, but it struggles with imbalanced datasets, needs large structured data, and cannot capture complex nonlinear relationships. Other advanced approaches, like deep learning, are often too hard to interpret and not suitable for small or medium-sized datasets. This creates a need for a model that is accurate, efficient, and still provides some interpretability. For this purpose XGboost algorithm has been implemented and evaluated in this research paper and has been compared to other machine learning methodologies.
 
-## Introduction
+XGBoost Algorithm Used
 
-The introduction should:
+The study applies the XGBoost (Extreme Gradient Boosting) algorithm, which is an advanced version of gradient boosting decision trees. Instead of building one single tree, XGBoost builds many trees in sequence, where each new tree learns from the mistakes of the previous ones. The final prediction is the combination of all these trees.
+Some important aspects of how XGBoost was used in this research are:
 
--   Develop a storyline that captures attention and maintains interest.
+Regularized objective function: XGBoost adds a penalty for model complexity, which prevents overfitting and keeps the model generalizable.
 
--   Your audience is your peers
+Gain-based splitting: When deciding how to split a tree node, XGBoost calculates a Gain score that measures the improvement in prediction accuracy, and chooses the split with the highest gain.
 
--   Clearly state the problem or question you're addressing.
+Leaf weight optimization: For each leaf (the final nodes of a tree), XGBoost computes the best output value that minimizes the loss function.
 
-<!-- -->
+Feature importance: The model measures how much each feature contributes to improving predictions. This helped the researchers identify which borrower features (like loan amount, credit score, or income) mattered most.
 
--   Introduce why it is relevant needs.
+Probability output: After training, the raw scores are converted into probabilities, making it suitable for binary classification (Good borrower vs Bad borrower).
 
--   Provide an overview of your approach.
+Application in the Study
 
-Example of writing including citing references:
+The researchers trained XGBoost on the Lending Club 2018 dataset (127,702 records, 143 features). They cleaned the data, balanced the classes (Good vs Bad loans), and tested feature selection both with traditional Information Value (IV) and with XGBoost’s feature importance. Then, they compared the XGBoost model against Logistic Regression, Decision Trees, Random Forest, and standard Gradient Boosting.
 
-*This is an introduction to ..... regression, which is a non-parametric
-estimator that estimates the conditional expectation of two variables
-which is random. The goal of a kernel regression is to discover the
-non-linear relationship between two random variables. To discover the
-non-linear relationship, kernel estimator or kernel smoothing is the
-main method to estimate the curve for non-parametric statistics. In
-kernel estimator, weight function is known as kernel function
-[@efr2008]. Cite this paper [@bro2014principal]. The GEE [@wang2014].
-The PCA [@daffertshofer2004pca]*. Topology can be used in machine
-learning [@adams2021topology]
+Results
 
-For Symbolic Regression [@wang2019symbolic] *This is my work and I want
-to add more work...*
+XGBoost consistently outperformed all other models in terms of accuracy, AUC, and ability to distinguish between good and bad borrowers. It also produced fewer misclassifications. Feature selection using XGBoost’s importance values further boosted the performance. The findings showed that XGBoost is not only accurate but also practical for financial institutions dealing with imbalanced credit datasets.
 
-Cite new paper [@su2012linear]
+Reference
 
-## Methods
+H. Li, Y. Cao, S. Li, J. Zhao and Y. Sun, "XGBoost Model and Its Application to Personal Credit Evaluation," in IEEE Intelligent Systems, vol. 35, no. 3, pp. 52-61, 1 May-June 2020, doi: 10.1109/MIS.2020.2972533.
 
--   Detail the models or algorithms used.
 
--   Justify your choices based on the problem and data.
+Summary 2: Improved Multiclassification of Schizophrenia Based on Xgboost and Information Fusion for Small Datasets
 
-*The common non-parametric regression model is*
-$Y_i = m(X_i) + \varepsilon_i$*, where* $Y_i$ *can be defined as the sum
-of the regression function value* $m(x)$ *for* $X_i$*. Here* $m(x)$ *is
-unknown and* $\varepsilon_i$ *some errors. With the help of this
-definition, we can create the estimation for local averaging i.e.*
-$m(x)$ *can be estimated with the product of* $Y_i$ *average and* $X_i$
-*is near to* $x$*. In other words, this means that we are discovering
-the line through the data points with the help of surrounding data
-points. The estimation formula is printed below [@R-base]:*
+Problem
 
-$$
-M_n(x) = \sum_{i=1}^{n} W_n (X_i) Y_i  \tag{1}
-$$$W_n(x)$ *is the sum of weights that belongs to all real numbers.
-Weights are positive numbers and small if* $X_i$ *is far from* $x$*.*
+Schizophrenia (SZ) is a serious mental disorder, with two subtypes: deficit schizophrenia (DS) and nondeficit schizophrenia (NDS). DS patients show more severe negative symptoms and worse recovery. Diagnosis is usually based on symptoms, without reliable biological markers, which makes it challenging and sometimes inaccurate. Most earlier studies focused only on binary classification (SZ vs healthy), but multiclass classification (healthy, DS, and NDS) is more difficult, especially with small datasets. Traditional machine learning methods have limited performance, often below 70% accuracy, creating a need for a stronger approach.To address this, this research paper applied a fusion model of XGBoost algorithm and D-S evidence.
 
-*Another equation:*
+XGBoost Algorithm Used
 
-$$
-y_i = \beta_0 + \beta_1 X_1 +\varepsilon_i
-$$
+XGBoost (Extreme Gradient Boosting) is an ensemble algorithm that builds decision trees step by step, each correcting the mistakes of the last. It uses a regularization term to avoid overfitting and a gain-based splitting method to choose the best splits. This makes it robust and well-suited for small, imbalanced datasets like in this study.
+In this paper, they trained two separate XGBoost models:
+- one using gray matter volume (GMV) features,
+- another using amplitude of low-frequency fluctuations (ALFF) features,
+both extracted from fMRI data.
 
-## Analysis and Results
+D-S Evidence Theory for Fusion
 
-### Data Exploration and Visualization
+The challenge was that the two classifiers (GMV-based and ALFF-based) sometimes gave conflicting results. To handle this, the researchers applied Dempster–Shafer (D-S) evidence theory as a fusion strategy.
+- Each classifier produces a probability distribution over the three classes (Healthy, DS, NDS).
+- D-S evidence theory treats these as “belief functions” and combines them.
+- When the two classifiers agree, the combined belief becomes stronger; when they disagree, D-S reduces the conflict and produces a balanced probability.
+- The final decision is made by choosing the class with the highest combined probability.
 
--   Describe your data sources and collection process.
+This fusion process allowed the model to make better use of information from both GMV and ALFF, rather than relying on one source alone.
 
--   Present initial findings and insights through visualizations.
+Application 
 
--   Highlight unexpected patterns or anomalies.
+The dataset had 85 subjects (38 healthy, 16 DS, 31 NDS). Using 10-fold cross-validation, the researchers compared their fusion model with Logistic Regression, SVM, KNN, Random Forest, Naive Bayes, Neural Networks, Deep Neural Networks, and XGBoost alone.
 
-A study was conducted to determine how...
+Results
 
-```{r, warning=FALSE, echo=T, message=FALSE}
-# loading packages 
-library(tidyverse)
-library(knitr)
-library(ggthemes)
-library(ggrepel)
-library(dslabs)
-```
+The fusion model (XGBoost + D-S evidence) achieved the best results, with an average accuracy of 73.89%, outperforming all other methods. It was especially effective at distinguishing DS patients, which is usually the hardest task. XGBoost alone already outperformed many standard models, but combining the two classifiers with D-S theory improved performance even more.
+The study showed that combining XGBoost with D-S evidence theory provides a powerful way to classify schizophrenia subtypes. XGBoost handled the complex and imbalanced data well, while D-S evidence theory effectively merged information from different feature sources (GMV and ALFF). Together, they produced higher accuracy and more reliable results than traditional models. This approach offers a promising tool for supporting clinical diagnosis, though the authors note that larger datasets are needed for further validation.
 
-```{python}
-import pandas as pd
-```
+Reference
 
-```{r, warning=FALSE, echo=TRUE}
-# Load Data
-kable(head(murders))
+W. Zhu, S. Shen, and Z. Zhang, “Improved multiclassification of schizophrenia based on XGBoost and information fusion for small datasets,” Computational and Mathematical Methods in Medicine, vol. 2022, Art. no. 1581958, Jul. 2022, doi: 10.1155/2022/1581958.
 
-ggplot1 = murders %>% ggplot(mapping = aes(x=population/10^6, y=total)) 
 
-  ggplot1 + geom_point(aes(col=region), size = 4) +
-  geom_text_repel(aes(label=abb)) +
-  scale_x_log10() +
-  scale_y_log10() +
-  geom_smooth(formula = "y~x", method=lm,se = F)+
-  xlab("Populations in millions (log10 scale)") + 
-  ylab("Total number of murders (log10 scale)") +
-  ggtitle("US Gun Murders in 2010") +
-  scale_color_discrete(name = "Region")+
-      theme_bw()
-  
+Summary 3:Child mental health predictors among camp Tamil refugees: Utilizing linear and XGBOOST models
 
-```
+Goal of the Paper
 
-### Modeling and Results
+This research paper aims to understand the predictors of mental health, specifically depressive symptoms, among children living in refugee camps. While much research on refugee mental health has focused on adults, research was needed to focus on children—who make up a substantial proportion of the forcibly displaced population and experience unique vulnerabilities, including trauma exposure, disrupted family structures, and precarious living conditions. The paper investigates the relationship between parental mental health, child well-being, and family functioning in the context of forced displacement, with the goal of informing interventions that support both children and their caregivers in camp environments.
 
--   Explain your data preprocessing and cleaning steps.
+Importance
 
--   Present your key findings in a clear and concise manner.
+The research is significant because the mental health of forcibly displaced children is underexplored, despite evidence that these children are at high risk of depression, anxiety, and post-traumatic stress. Understanding how parental mental health and family dynamics influence child outcomes is crucial, as these factors may mediate the effects of traumatic experiences and chronic stress associated with displacement. The findings of this study can guide the development of mental health and parenting programs in refugee camps, enhancing resilience, psychosocial well-being, and long-term developmental outcomes for children and their families.
 
--   Use visuals to support your claims.
+Workflow
 
--   **Tell a story about what the data reveals.**
+The research paper followed a structured workflow to ensure data quality and ethical rigor. Researchers conducted in-person interviews with 120 parent-adolescent dyads living in the Trichy refugee camp in Tamil Nadu, India. Participants were recruited using stratified purposive sampling, ensuring representation across camp subdivisions, and informed consent was obtained from parents and adolescents, with verbal consent used when necessary. Data collection involved separate interviews for parents and children, allowing participants to answer freely without influence from family members. Researchers collected detailed demographic information and assessed child depressive symptoms, parental mental health, child daily stressors, family functioning, sleep quality, and behavioral and emotional difficulties. This comprehensive approach ensured that multiple potential predictors of child mental health were measured, while maintaining attention to participant comfort and cultural sensitivity.
 
-```{r}
+Methodology Used
 
-```
+For analysis, the study employed both linear and non-linear statistical approaches. 
+- Hierarchical regression was used as the linear model to evaluate how child-specific variables, parental mental health, and family functioning contributed to child depressive symptoms. 
+- To capture complex, non-linear interactions and quantify the importance of each predictor, the researchers applied XGBoost (Extreme Gradient Boosting), a powerful machine learning algorithm known for its high predictive accuracy. The XGBoost model was trained on 80% of the data, with 20% reserved for testing, and fine-tuned using k-fold cross-validation. Predictor contributions were interpreted using SHAP (Shapley Additive Explanations), which provided a game-theoretic estimate of the impact of each variable on model predictions, allowing for a nuanced understanding of the relative importance of child, parental, and family factors. Algorithms were implemented in RStudio using xgboost, caret, mlr, ROSE, DMwR, ggplot2, and SHAPforxgboost packages.
 
-### Conclusion
+Results and Limitations
 
--   Summarize your key findings.
+Linear Regression:
+Results from the linear regression showed that parental mental health and child behavioral difficulties were significant predictors of child depressive symptoms. Family cohesion showed modest effect and family functioning measures such as parenting quality did not reach statistical significance in the linear model, contrary to XGBoost prediction. Linear regression explained 34.6% of the variance in child depressive symptoms.
 
--   Discuss the implications of your results.
+XGBoost:
+XGBoost top predictors included:
+- Child strengths/difficulties (~43% contribution)
+- Sleep quality (~24%)
+- Daily stressors (~13%)
+- Family cohesion & parenting quality (~8% each)
+- Parental mental health (~3%)
 
-## References
+SHAP analysis confirmed that poor sleep, negative parenting, and weak family cohesion exacerbate child depressive symptoms.
+
+Limitations
+
+Some measurement tools were not originally designed for externally displaced youth; cultural factors may affect interpretation.Linear model underestimated family functioning’s role, highlighting the value of XGBoost for capturing non-linear effects.
+
+Conclusion
+
+Parental mental health, child behavioral and emotional difficulties, and family functioning emerge as key predictors of depressive symptoms among children in refugee camps. These findings highlight the need for urgent interventions, including mental health programs that target both children and parents, parenting support aimed at improving family functioning, and the development of culturally appropriate measurement tools. Additionally, qualitative studies are essential to gain deeper insights into the experiences of refugee families, ensuring that interventions are both effective and contextually relevant.
+
+Reference:
+
+Saleh, M., Amona, E., Kuttikat, M., Sahoo, I., Chan, D., Murphy, J., . . . Lund, M. (2024). Child mental health predictors among camp tamil refugees: Utilizing linear and XGBOOST models. PLoS One, 19(9) doi:https://doi.org/10.1371/journal.pone.0303632
+
+Summary 4:The prediction of self-harm behaviors in young adults with multi-modal data: an XGBoost approach
+
+Goal of the Paper
+
+The main goal of this research paper was to predict self-harm behaviors in young adults using a combination of social-demographic, psychological, and genetic data. The research aimed to identify key risk factors contributing to self-harm and to develop a reliable model that could support early screening and targeted interventions.
+
+Importance
+
+Self-harm and suicidal behaviors are serious public health concerns, especially in adolescents and young adults, as they can negatively affect mental health and life outcomes. Current prediction methods often fail to accurately identify individuals at risk due to the complex interactions between biological, psychological, and social factors. Using advanced machine learning methods, this study attempts to improve predictive accuracy, providing valuable insights for prevention strategies and interventions.
+
+Workflow
+
+Following steps were performed in this research paper
+- Participant Recruitment: First-year students from ten universities in Chongqing, China, were screened. 112 students with self-harm behaviors and 98 control participants were included.
+- Data Collection: Participants provided social-demographic information (age, sex, residence, family history of mental disorders), completed psychological assessments (personality, aggression, impulsivity, quality of life, suicidal ideation, internet addiction), and gave blood samples for genetic analysis.
+- Questionnaire Assessment: Standardized tools were used to measure suicidal ideation, personality traits, aggression, impulsivity, quality of life, and internet addiction.
+- Genetic Testing: 53 SNPs across 15 genes associated with neural pathways and suicide-related behavior were analyzed from blood-derived DNA samples.
+- Data Cleaning and Preprocessing: All features were prepared and standardized for analysis, ensuring data consistency and quality.
+- Traditional Statistical Analysis: Differences between self-harm and control groups were analyzed using t-tests, Chi-square tests, and Mann-Whitney U tests. SNP associations were evaluated under multiple genetic models.
+
+
+Methodology:
+
+XGBoost, a gradient boosting tree algorithm, was used to integrate all 82 features, including social-demographic, psychological, and genetic data. This algorithm was selected because it is highly efficient, flexible, and capable of capturing complex, non-linear relationships between variables. The dataset was processed using cross-validation, and hyperparameters were carefully tuned with internal 10-fold cross-validation to optimize balanced accuracy. Feature importance was assessed by calculating the average gain for each tree, which allowed the researchers to determine which variables had the strongest influence on the model’s predictions. Using XGBoost, the study identified the most important predictors of self-harm, including suicidal ideation in the past year and month, family history of mental disorders, certain personality traits, and specific genetic variants, particularly in the NTRK2 gene. When compared with traditional statistical methods, the XGBoost model demonstrated higher accuracy and reliability, showing that integrating multi-modal data provides a more powerful approach for identifying individuals at risk of self-harm.
+
+Results
+
+- Suicidal ideation, family history of mental disorders, aggressive and psychoticism personality traits, educational background, and low quality of life were strongly associated with self-harm.
+- Genetic analysis revealed 12 SNPs in 9 genes significantly linked to self-harm, with four key variants in NTRK2 ranking high among predictive features. Other relevant genes included HTR1B, SLC6A4, CRHBP, and FKBP5.
+- The XGBoost model achieved high predictive performance: sensitivity 0.866, specificity 0.734, balanced accuracy 0.800, PPV 0.789, and NPV 0.828.
+- Multi-modal data integration improved prediction over traditional statistical methods and helped identify high-risk subgroups for targeted intervention.
+
+Limitations
+
+The study’s findings are limited by several factors. The relatively small sample size, especially for the control group, restricts the generalizability of the results and prevents robust external validation. Additionally, because only first-year university students were included, the applicability of the findings to other age groups is limited. The lack of detailed information on the frequency, duration, and methods of self-harm may have increased heterogeneity within the self-harm group. Furthermore, implementing systematic screening on a large scale presents logistical challenges and raises ethical concerns, particularly regarding timely support for high-risk individuals.
+
+Conclusion
+
+XGBoost is an effective machine learning tool for predicting self-harm behaviors in young adults when integrating social-demographic, psychological, and genetic information. Suicidal ideation, personality traits, and the NTRK2 gene were the most important predictors. The study emphasizes the potential of multi-modal screening to guide early interventions and prevent self-harm in young adults.
+
+Reference
+
+X.-M. Xu, Y. S. Liu, S. Hong, C. Liu, J. Cao, X.-R. Chen, Z. Lv, B. Cao, H.-G. Wang, W. Wang, M. Ai, and L. Kuang, “The prediction of self-harm behaviors in young adults with multi-modal data: an XGBoost approach,” Journal of Affective Disorders Reports, vol. 16, Apr. 2024, Art. no. 100723.
+

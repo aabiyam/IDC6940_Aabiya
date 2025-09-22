@@ -19,13 +19,13 @@ editor:
 
 # Research Summaries on XGBoost
 
-Summary 1: XGBoost Model and Its Application to Personal Credit
+## Summary 1: XGBoost Model and Its Application to Personal Credit
 
-Problem
+### Problem
 
 This research paper addresses the difficulty of personal credit evaluation, which means predicting whether borrowers will repay or default on loans. Logistic regression has long been the standard model, but it struggles with imbalanced datasets, needs large structured data, and cannot capture complex nonlinear relationships. Other advanced approaches, like deep learning, are often too hard to interpret and not suitable for small or medium-sized datasets. This creates a need for a model that is accurate, efficient, and still provides some interpretability. For this purpose XGboost algorithm has been implemented and evaluated in this research paper and has been compared to other machine learning methodologies.
 
-XGBoost Algorithm Used
+### XGBoost Algorithm Used
 
 The study applies the XGBoost (Extreme Gradient Boosting) algorithm, which is an advanced version of gradient boosting decision trees. Instead of building one single tree, XGBoost builds many trees in sequence, where each new tree learns from the mistakes of the previous ones. The final prediction is the combination of all these trees.
 Some important aspects of how XGBoost was used in this research are:
@@ -40,24 +40,26 @@ Feature importance: The model measures how much each feature contributes to impr
 
 Probability output: After training, the raw scores are converted into probabilities, making it suitable for binary classification (Good borrower vs Bad borrower).
 
-Application in the Study
+### Application in the Study
 
 The researchers trained XGBoost on the Lending Club 2018 dataset (127,702 records, 143 features). They cleaned the data, balanced the classes (Good vs Bad loans), and tested feature selection both with traditional Information Value (IV) and with XGBoost’s feature importance. Then, they compared the XGBoost model against Logistic Regression, Decision Trees, Random Forest, and standard Gradient Boosting.
 
-Results
+### Results
 
 XGBoost consistently outperformed all other models in terms of accuracy, AUC, and ability to distinguish between good and bad borrowers. It also produced fewer misclassifications. Feature selection using XGBoost’s importance values further boosted the performance. The findings showed that XGBoost is not only accurate but also practical for financial institutions dealing with imbalanced credit datasets.
 
-Reference
+### Reference
 
 H. Li, Y. Cao, S. Li, J. Zhao and Y. Sun, "XGBoost Model and Its Application to Personal Credit Evaluation," in IEEE Intelligent Systems, vol. 35, no. 3, pp. 52-61, 1 May-June 2020, doi: 10.1109/MIS.2020.2972533.
 
 
-Summary 2: Improved Multiclassification of Schizophrenia Based on Xgboost and Information Fusion for Small Datasets
+## Summary 2: Improved Multiclassification of Schizophrenia Based on Xgboost and Information Fusion for Small Datasets
 
-Problem
+### Problem
 
 Schizophrenia (SZ) is a serious mental disorder, with two subtypes: deficit schizophrenia (DS) and nondeficit schizophrenia (NDS). DS patients show more severe negative symptoms and worse recovery. Diagnosis is usually based on symptoms, without reliable biological markers, which makes it challenging and sometimes inaccurate. Most earlier studies focused only on binary classification (SZ vs healthy), but multiclass classification (healthy, DS, and NDS) is more difficult, especially with small datasets. Traditional machine learning methods have limited performance, often below 70% accuracy, creating a need for a stronger approach.To address this, this research paper applied a fusion model of XGBoost algorithm and D-S evidence.
+
+### Methodology
 
 XGBoost Algorithm Used
 
@@ -77,46 +79,48 @@ The challenge was that the two classifiers (GMV-based and ALFF-based) sometimes 
 
 This fusion process allowed the model to make better use of information from both GMV and ALFF, rather than relying on one source alone.
 
-Application 
+### Application 
 
 The dataset had 85 subjects (38 healthy, 16 DS, 31 NDS). Using 10-fold cross-validation, the researchers compared their fusion model with Logistic Regression, SVM, KNN, Random Forest, Naive Bayes, Neural Networks, Deep Neural Networks, and XGBoost alone.
 
-Results
+### Results
 
 The fusion model (XGBoost + D-S evidence) achieved the best results, with an average accuracy of 73.89%, outperforming all other methods. It was especially effective at distinguishing DS patients, which is usually the hardest task. XGBoost alone already outperformed many standard models, but combining the two classifiers with D-S theory improved performance even more.
 The study showed that combining XGBoost with D-S evidence theory provides a powerful way to classify schizophrenia subtypes. XGBoost handled the complex and imbalanced data well, while D-S evidence theory effectively merged information from different feature sources (GMV and ALFF). Together, they produced higher accuracy and more reliable results than traditional models. This approach offers a promising tool for supporting clinical diagnosis, though the authors note that larger datasets are needed for further validation.
 
-Reference
+### Reference
 
 W. Zhu, S. Shen, and Z. Zhang, “Improved multiclassification of schizophrenia based on XGBoost and information fusion for small datasets,” Computational and Mathematical Methods in Medicine, vol. 2022, Art. no. 1581958, Jul. 2022, doi: 10.1155/2022/1581958.
 
 
-Summary 3:Child mental health predictors among camp Tamil refugees: Utilizing linear and XGBOOST models
+## Summary 3:Child mental health predictors among camp Tamil refugees: Utilizing linear and XGBOOST models
 
-Goal of the Paper
+### Goal of the Paper
 
 This research paper aims to understand the predictors of mental health, specifically depressive symptoms, among children living in refugee camps. While much research on refugee mental health has focused on adults, research was needed to focus on children—who make up a substantial proportion of the forcibly displaced population and experience unique vulnerabilities, including trauma exposure, disrupted family structures, and precarious living conditions. The paper investigates the relationship between parental mental health, child well-being, and family functioning in the context of forced displacement, with the goal of informing interventions that support both children and their caregivers in camp environments.
 
-Importance
+### Importance
 
 The research is significant because the mental health of forcibly displaced children is underexplored, despite evidence that these children are at high risk of depression, anxiety, and post-traumatic stress. Understanding how parental mental health and family dynamics influence child outcomes is crucial, as these factors may mediate the effects of traumatic experiences and chronic stress associated with displacement. The findings of this study can guide the development of mental health and parenting programs in refugee camps, enhancing resilience, psychosocial well-being, and long-term developmental outcomes for children and their families.
 
-Workflow
+### Workflow
 
 The research paper followed a structured workflow to ensure data quality and ethical rigor. Researchers conducted in-person interviews with 120 parent-adolescent dyads living in the Trichy refugee camp in Tamil Nadu, India. Participants were recruited using stratified purposive sampling, ensuring representation across camp subdivisions, and informed consent was obtained from parents and adolescents, with verbal consent used when necessary. Data collection involved separate interviews for parents and children, allowing participants to answer freely without influence from family members. Researchers collected detailed demographic information and assessed child depressive symptoms, parental mental health, child daily stressors, family functioning, sleep quality, and behavioral and emotional difficulties. This comprehensive approach ensured that multiple potential predictors of child mental health were measured, while maintaining attention to participant comfort and cultural sensitivity.
 
-Methodology Used
+### Methodology Used
 
 For analysis, the study employed both linear and non-linear statistical approaches. 
 - Hierarchical regression was used as the linear model to evaluate how child-specific variables, parental mental health, and family functioning contributed to child depressive symptoms. 
 - To capture complex, non-linear interactions and quantify the importance of each predictor, the researchers applied XGBoost (Extreme Gradient Boosting), a powerful machine learning algorithm known for its high predictive accuracy. The XGBoost model was trained on 80% of the data, with 20% reserved for testing, and fine-tuned using k-fold cross-validation. Predictor contributions were interpreted using SHAP (Shapley Additive Explanations), which provided a game-theoretic estimate of the impact of each variable on model predictions, allowing for a nuanced understanding of the relative importance of child, parental, and family factors. Algorithms were implemented in RStudio using xgboost, caret, mlr, ROSE, DMwR, ggplot2, and SHAPforxgboost packages.
 
-Results and Limitations
+### Results 
 
 Linear Regression:
+
 Results from the linear regression showed that parental mental health and child behavioral difficulties were significant predictors of child depressive symptoms. Family cohesion showed modest effect and family functioning measures such as parenting quality did not reach statistical significance in the linear model, contrary to XGBoost prediction. Linear regression explained 34.6% of the variance in child depressive symptoms.
 
 XGBoost:
+
 XGBoost top predictors included:
 - Child strengths/difficulties (~43% contribution)
 - Sleep quality (~24%)
@@ -126,29 +130,29 @@ XGBoost top predictors included:
 
 SHAP analysis confirmed that poor sleep, negative parenting, and weak family cohesion exacerbate child depressive symptoms.
 
-Limitations
+### Limitations
 
 Some measurement tools were not originally designed for externally displaced youth; cultural factors may affect interpretation.Linear model underestimated family functioning’s role, highlighting the value of XGBoost for capturing non-linear effects.
 
-Conclusion
+### Conclusion
 
 Parental mental health, child behavioral and emotional difficulties, and family functioning emerge as key predictors of depressive symptoms among children in refugee camps. These findings highlight the need for urgent interventions, including mental health programs that target both children and parents, parenting support aimed at improving family functioning, and the development of culturally appropriate measurement tools. Additionally, qualitative studies are essential to gain deeper insights into the experiences of refugee families, ensuring that interventions are both effective and contextually relevant.
 
-Reference:
+### Reference:
 
 Saleh, M., Amona, E., Kuttikat, M., Sahoo, I., Chan, D., Murphy, J., . . . Lund, M. (2024). Child mental health predictors among camp tamil refugees: Utilizing linear and XGBOOST models. PLoS One, 19(9) doi:https://doi.org/10.1371/journal.pone.0303632
 
-Summary 4:The prediction of self-harm behaviors in young adults with multi-modal data: an XGBoost approach
+## Summary 4:The prediction of self-harm behaviors in young adults with multi-modal data: an XGBoost approach
 
-Goal of the Paper
+### Goal of the Paper
 
 The main goal of this research paper was to predict self-harm behaviors in young adults using a combination of social-demographic, psychological, and genetic data. The research aimed to identify key risk factors contributing to self-harm and to develop a reliable model that could support early screening and targeted interventions.
 
-Importance
+### Importance
 
 Self-harm and suicidal behaviors are serious public health concerns, especially in adolescents and young adults, as they can negatively affect mental health and life outcomes. Current prediction methods often fail to accurately identify individuals at risk due to the complex interactions between biological, psychological, and social factors. Using advanced machine learning methods, this study attempts to improve predictive accuracy, providing valuable insights for prevention strategies and interventions.
 
-Workflow
+### Workflow
 
 Following steps were performed in this research paper
 - Participant Recruitment: First-year students from ten universities in Chongqing, China, were screened. 112 students with self-harm behaviors and 98 control participants were included.
@@ -159,26 +163,195 @@ Following steps were performed in this research paper
 - Traditional Statistical Analysis: Differences between self-harm and control groups were analyzed using t-tests, Chi-square tests, and Mann-Whitney U tests. SNP associations were evaluated under multiple genetic models.
 
 
-Methodology:
+### Methodology:
 
 XGBoost, a gradient boosting tree algorithm, was used to integrate all 82 features, including social-demographic, psychological, and genetic data. This algorithm was selected because it is highly efficient, flexible, and capable of capturing complex, non-linear relationships between variables. The dataset was processed using cross-validation, and hyperparameters were carefully tuned with internal 10-fold cross-validation to optimize balanced accuracy. Feature importance was assessed by calculating the average gain for each tree, which allowed the researchers to determine which variables had the strongest influence on the model’s predictions. Using XGBoost, the study identified the most important predictors of self-harm, including suicidal ideation in the past year and month, family history of mental disorders, certain personality traits, and specific genetic variants, particularly in the NTRK2 gene. When compared with traditional statistical methods, the XGBoost model demonstrated higher accuracy and reliability, showing that integrating multi-modal data provides a more powerful approach for identifying individuals at risk of self-harm.
 
-Results
+### Results
 
 - Suicidal ideation, family history of mental disorders, aggressive and psychoticism personality traits, educational background, and low quality of life were strongly associated with self-harm.
 - Genetic analysis revealed 12 SNPs in 9 genes significantly linked to self-harm, with four key variants in NTRK2 ranking high among predictive features. Other relevant genes included HTR1B, SLC6A4, CRHBP, and FKBP5.
 - The XGBoost model achieved high predictive performance: sensitivity 0.866, specificity 0.734, balanced accuracy 0.800, PPV 0.789, and NPV 0.828.
 - Multi-modal data integration improved prediction over traditional statistical methods and helped identify high-risk subgroups for targeted intervention.
 
-Limitations
+### Limitations
 
 The study’s findings are limited by several factors. The relatively small sample size, especially for the control group, restricts the generalizability of the results and prevents robust external validation. Additionally, because only first-year university students were included, the applicability of the findings to other age groups is limited. The lack of detailed information on the frequency, duration, and methods of self-harm may have increased heterogeneity within the self-harm group. Furthermore, implementing systematic screening on a large scale presents logistical challenges and raises ethical concerns, particularly regarding timely support for high-risk individuals.
 
-Conclusion
+### Conclusion
 
 XGBoost is an effective machine learning tool for predicting self-harm behaviors in young adults when integrating social-demographic, psychological, and genetic information. Suicidal ideation, personality traits, and the NTRK2 gene were the most important predictors. The study emphasizes the potential of multi-modal screening to guide early interventions and prevent self-harm in young adults.
 
-Reference
+### Reference
 
 X.-M. Xu, Y. S. Liu, S. Hong, C. Liu, J. Cao, X.-R. Chen, Z. Lv, B. Cao, H.-G. Wang, W. Wang, M. Ai, and L. Kuang, “The prediction of self-harm behaviors in young adults with multi-modal data: an XGBoost approach,” Journal of Affective Disorders Reports, vol. 16, Apr. 2024, Art. no. 100723.
 
+## Summary 5:Improving Diagnosis of Depression With XGBOOST Machine Learning Model and a Large Biomarers Dutch Dataset
+
+### Goal of the paper
+
+This study explores the use of machine learning, specifically Extreme Gradient Boosting (XGBoost), to detect cases of depression using biomarkers from the Lifelines Cohort Study in the Netherlands. The dataset included 11,081 participants, of whom only 570 (5.14%) reported depression, creating a class imbalance problem where the majority were healthy cases.
+
+### Importance
+
+Traditional diagnosis of depression relies on clinical interviews and self-reports, which are time-consuming, costly, and prone to sensitivity/specificity issues. Biomarkers—such as blood and urine indicators—are increasingly studied as objective tools to support diagnosis. However, single biomarkers lack reliability, so this study examined a panel of 28 biomarkers related to immune function, liver/kidney function, blood composition, and metabolism.
+
+### Methodology
+
+Handling Class Imbalance
+
+To address class imbalance, four resampling strategies were applied:
+Over-Sampling (O-Sample): Duplicate minority class observations to balance classes.
+
+
+Under-Sampling (U-Sample): Randomly reduce majority class observations to match minority class.
+
+
+Over-Under Sampling (OU-Sample): Combine over-sampling of minority class and under-sampling of majority class.
+
+
+ROSE Sampling (R-Sample): Generate synthetic data points using a smoothed bootstrap approach.
+
+
+The original dataset without resampling is referred to as OR-Sample.
+
+XGBoost Model
+
+The research paper used Extreme Gradient Boosting (XGBoost), an ensemble tree-based model that combines boosting and bagging, ideal for handling non-linear relationships and high-dimensional data. The model was trained on 80% of each resampled dataset and tested on the remaining 20%.
+
+Hyperparameters for XGBoost were set as follows:
+Parameter           Value
+Booster             gbtree
+Objective.          Binary:logistic
+Eta (learning rate) 0.3
+max_depth.          6
+gamma.              0
+min_child_weight.   1
+sub_sample.         1
+colsample_bytree.   1
+
+
+The models were named according to the resampling method:
+Xgb.O → Over-Sample
+
+
+Xgb.U → Under-Sample
+
+
+Xgb.OU → Over-Under Sample
+
+
+Xgb.R → ROSE Sample
+
+
+Xgb.OR → Original Sample
+
+
+Variable importance was computed using Gain, which indicates the contribution of each biomarker to improve model accuracy. Five XGBoost models (one per sample type plus the original dataset) were trained and evaluated using accuracy, balanced accuracy, precision, recall, and F1-score.
+
+### Results
+
+On the imbalanced original dataset, the model was biased toward predicting non-depression.
+
+
+With over-sampling and over-under sampling, the models achieved high performance, with balanced accuracy, precision, recall, and F1 scores above 0.90.
+
+
+These results suggest that biomarker data, when combined with appropriate machine learning techniques, can effectively support the detection of depression.
+
+### Limitations
+
+The study is limited by its cross-sectional design, which prevents establishing causal relationships between biomarkers and depression. Additionally, the class imbalance may affect the generalizability of the XGBoost models, and the findings are based on a Dutch population, limiting applicability to other ethnic or geographical groups.
+
+### Conclusion
+
+Machine learning, especially XGBoost with proper resampling, can significantly improve depression diagnosis using biomarkers. While not a replacement for clinical interviews, this approach provides a fast, scalable, and cost-effective complementary tool for mental health diagnosis.
+
+### Reference
+
+Sharma A, Verbeke WJMI. Improving Diagnosis of Depression With XGBOOST Machine Learning Model and a Large Biomarkers Dutch Dataset (n = 11,081). Front Big Data. 2020 Apr 30;3:15. doi: 10.3389/fdata.2020.00015. PMID: 33693389; PMCID: PMC7931945.
+
+## Summary 6: Multiclass Classification of Mental Health Disorders Using XGBoost‑HOA Algorithm
+
+### Goal of the paper
+
+This research paper proposes a hybrid XGBoost-Hippopotamus Optimization Algorithm (XGBoost-HOA) for multiclass classification of mental health disorders (depression, anxiety, and stress). The goal is to optimize hyperparameters, improve class sensitivity, mitigate overfitting, and enhance predictive accuracy.
+
+### Importance and Dataset
+
+This study addresses critical gaps in mental health classification, including overlapping symptoms, comorbidities, and the subjectivity inherent in traditional assessments. By combining machine learning with metaheuristic optimization, the approach achieves improved performance and demonstrates the potential of hybrid methods in clinical decision support systems. The dataset comprises 5,019 records, with a nearly balanced gender distribution (2,487 females and 2,532 males), covering disorders such as depression, anxiety, stress, and their combinations. It includes 38 features encompassing demographic and social factors like age, gender, education, marital status, and relationships. Class imbalance was managed using SMOTE, and dimensionality reduction was applied through PCA to streamline feature representation and enhance model efficiency.
+
+### Methodology
+
+XGBoost for classification using multiclass log loss as the objective function.
+
+
+HOA (Hippopotamus Optimization Algorithm) for hyperparameter tuning.
+
+
+Inspired by herd behavior and predator defense mechanisms of hippopotamuses.
+
+
+Optimizes hyperparameters such as max_depth, learning_rate, n_estimators, lambda, alpha, and subsample.
+
+
+Steps include initialization, position updating (influenced by dominant “male”), predator defense, and escape strategy.
+
+
+Evaluation metrics: Accuracy, precision, recall, F1-score, and AUC for ROC curves.
+
+
+Classification levels: Binary, three-class, four-class, five-class schemes for multifactor analysis.
+
+
+### Results
+ 
+Depression:
+
+
+Best results for age 15–20: 5-class classification achieved accuracy 78%, precision/recall 100%, F1-score 1
+
+
+All ages combined (binary): accuracy 74%, F1-score 0.84
+
+
+Anxiety:
+
+
+Best results for age 15–20: 3-class classification accuracy 81%, F1-score 0.90
+
+
+All ages combined (5-class): accuracy 77%, F1-score 0.84
+
+
+Stress:
+
+
+Best results for age 15–20: 4-class classification accuracy 77%, F1-score 0.95
+
+
+All ages combined (5-class): accuracy 72%, F1-score 0.80
+
+
+AUC Values:
+
+
+Depression: High AUC (Class 1 = 1.00, Class 5 = 0.95)
+
+
+Anxiety: High AUC (Class 1 = 1.00, Class 2 = 0.93)
+
+
+Stress: Moderate AUC (Class 4 = 0.73)
+
+
+### Limitations
+
+Despite its strengths, XGBoost-HOA may struggle with imbalanced datasets and less common mental health conditions. Moreover, its performance can be sensitive to the quality and completeness of input data, which may limit generalizability across diverse populations.
+
+### Conclusion
+XGBoost-HOA effectively handles multiclass and multifactor analysis of mental health disorders. The model demonstrates the best performance in classifying depression and anxiety, while stress classification accuracy is comparatively lower. By integrating HOA, hyperparameter tuning is improved, overfitting is reduced, and class sensitivity is enhanced. Additionally, the model supports personalized treatment planning by incorporating demographic and social factors, enabling more tailored interventions.
+
+### Reference
+
+R. Chahar, A. K. Dubey, and S. K. Narang, “Multiclass Classification of Mental Health Disorders Using XGBoost-HOA Algorithm,” SN Computer Science, vol. 5, no. 8, Dec. 2024, doi: 10.1007/s42979-024-03525-6.
